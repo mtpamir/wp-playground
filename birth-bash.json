@@ -1,0 +1,31 @@
+{
+    "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+    "landingPage": "/wp-admin/admin.php?page=neolite-birthday-bash",
+    "steps": [
+        {
+            "step": "installPlugin",
+            "pluginData": {
+                "resource": "wordpress.org/plugins/woocommerce"
+            }
+        },
+        {
+            "step": "runPHP",
+            "code": "<?php require_once ABSPATH . 'wp-admin/includes/upgrade.php'; ?>",
+            "description": "Preparing environment for data import"
+        },
+        {
+            "step": "importWpAdminV1",
+            "file": {
+                "resource": "url",
+                "url": "https://raw.githubusercontent.com/woocommerce/woocommerce/trunk/sample-data/sample_products.xml"
+            },
+            "description": "Loading WooCommerce sample products"
+        },
+        {
+            "step": "installPlugin",
+            "pluginData": {
+                "resource": "wordpress.org/plugins/birthday-bash"
+            }
+        }
+    ]
+}
