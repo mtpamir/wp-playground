@@ -1,31 +1,34 @@
 {
     "$schema": "https://playground.wordpress.net/blueprint-schema.json",
     "landingPage": "/wp-admin/admin.php?page=neolite-birthday-bash",
+    "login": true,
     "steps": [
         {
             "step": "installPlugin",
             "pluginData": {
-                "resource": "wordpress.org/plugins/woocommerce"
-            }
+                "resource": "wordpress.org/plugins",
+                "slug": "woocommerce"
+            },
+            "options": { "activate": true }
         },
         {
-            "step": "runPHP",
-            "code": "<?php require_once ABSPATH . 'wp-admin/includes/upgrade.php'; ?>",
-            "description": "Preparing environment for data import"
-        },
-        {
-            "step": "importWpAdminV1",
+            "step": "importWxr",
             "file": {
                 "resource": "url",
-                "url": "https://raw.githubusercontent.com/woocommerce/woocommerce/trunk/sample-data/sample_products.xml"
-            },
-            "description": "Loading WooCommerce sample products"
+                "url": "https://raw.githubusercontent.com/woocommerce/woocommerce/trunk/plugins/woocommerce/sample-data/sample_products.xml"
+            }
         },
         {
             "step": "installPlugin",
             "pluginData": {
-                "resource": "wordpress.org/plugins/birthday-bash"
-            }
+                "resource": "wordpress.org/plugins",
+                "slug": "birthday-bash"
+            },
+            "options": { "activate": true }
+        },
+        {
+            "step": "runPHP",
+            "code": "<?php wp_insert_post(['post_title' => 'Birthday Form Demo', 'post_content' => '[birthday_bash_form]', 'post_status' => 'publish', 'post_type' => 'page']); ?>"
         }
     ]
 }
