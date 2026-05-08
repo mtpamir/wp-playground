@@ -13,7 +13,7 @@
         },
         {
             "step": "runPHP",
-            "code": "<?php require_once '/wordpress/wp-load.php'; update_option('woocommerce_task_list_hidden_lists', array('setup')); update_option('woocommerce_onboarding_profile', array('skipped' => true, 'completed' => true)); update_option('woocommerce_admin_install_timestamp', time()); update_option('woocommerce_admin_onboarding_skipped_tasks', array('products', 'tax', 'shipping', 'payments')); update_option('woocommerce_allow_tracking', 'no'); update_option('woocommerce_default_country', 'US:NY'); update_option('woocommerce_currency', 'USD'); ?>"
+            "code": "<?php require_once '/wordpress/wp-load.php'; update_option('woocommerce_task_list_hidden_lists', array('setup', 'extended')); update_option('woocommerce_onboarding_profile', array('skipped' => true, 'completed' => true, 'is_already_established' => true, 'business_extensions' => array())); update_option('woocommerce_admin_onboarding_skipped_tasks', array('products', 'tax', 'shipping', 'payments', 'marketing', 'extensions')); update_option('woocommerce_admin_notices', array()); update_option('woocommerce_allow_tracking', 'no'); update_option('woocommerce_default_country', 'US:NY'); update_option('woocommerce_currency', 'USD'); ?>"
         },
         {
             "step": "importWxr",
