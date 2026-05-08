@@ -32,7 +32,7 @@
         },
         {
             "step": "runPHP",
-            "code": "<?php require_once '/wordpress/wp-load.php'; if (!isset(WC()->session)) { WC()->session = new WC_Session_Handler(); WC()->session->init(); } if (!isset(WC()->cart)) { WC()->cart = new WC_Cart(); } $product = get_page_by_path('v-neck-t-shirt', OBJECT, 'product'); if ($product) { WC()->cart->add_to_cart($product->ID); } ?>"
+            "code": "<?php require_once '/wordpress/wp-load.php'; wp_set_current_user(1); if (!isset(WC()->session)) { WC()->session = new WC_Session_Handler(); WC()->session->init(); } if (!isset(WC()->cart)) { WC()->cart = new WC_Cart(); } $product = get_page_by_path('v-neck-t-shirt', OBJECT, 'product'); if ($product) { WC()->cart->add_to_cart($product->ID); WC()->cart->persistent_cart_update(); WC()->session->set_customer_session_cookie(true); } ?>"
         }
     ]
 }
