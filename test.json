@@ -4,6 +4,16 @@
     "login": true,
     "steps": [
         {
+            "step": "installTheme",
+            "themeData": {
+                "resource": "wordpress.org/themes",
+                "slug": "astra"
+            },
+            "options": {
+                "activate": true
+            }
+        },
+        {
             "step": "installPlugin",
             "pluginData": {
                 "resource": "wordpress.org/plugins",
@@ -13,7 +23,7 @@
         },
         {
             "step": "runPHP",
-            "code": "<?php require_once '/wordpress/wp-load.php'; update_option('woocommerce_task_list_hidden_lists', array('setup', 'extended')); update_option('woocommerce_onboarding_profile', array('skipped' => true, 'completed' => true, 'is_already_established' => true)); update_option('woocommerce_default_country', 'US:NY'); update_option('woocommerce_currency', 'USD'); ?>"
+            "code": "<?php require_once '/wordpress/wp-load.php'; update_option('woocommerce_task_list_hidden_lists', array('setup', 'extended')); update_option('woocommerce_onboarding_profile', array('skipped' => true, 'completed' => true, 'is_already_established' => true, 'business_extensions' => array())); update_option('woocommerce_admin_onboarding_skipped_tasks', array('products', 'tax', 'shipping', 'payments', 'marketing', 'extensions')); update_option('woocommerce_admin_notices', array()); update_option('woocommerce_allow_tracking', 'no'); update_option('woocommerce_default_country', 'US:NY'); update_option('woocommerce_currency', 'USD'); ?>"
         },
         {
             "step": "importWxr",
@@ -32,7 +42,7 @@
         },
         {
             "step": "runPHP",
-            "code": "<?php require_once '/wordpress/wp-load.php'; wp_set_current_user(1); if (!isset(WC()->session)) { WC()->session = new WC_Session_Handler(); WC()->session->init(); } if (!isset(WC()->cart)) { WC()->cart = new WC_Cart(); } $product = get_page_by_path('v-neck-t-shirt', OBJECT, 'product'); if ($product) { WC()->cart->add_to_cart($product->ID); WC()->cart->persistent_cart_update(); WC()->session->set_customer_session_cookie(true); } ?>"
+            "code": "<?php require_once '/wordpress/wp-load.php'; wp_insert_post(['post_title' => 'Birthday Form Demo', 'post_content' => '[birthday_bash_form]', 'post_status' => 'publish', 'post_type' => 'page']); wp_insert_post(['post_title' => 'Classic Checkout', 'post_content' => '[woocommerce_checkout]', 'post_status' => 'publish', 'post_type' => 'page']); ?>"
         }
     ]
 }
