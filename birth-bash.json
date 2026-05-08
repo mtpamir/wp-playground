@@ -28,7 +28,7 @@
         },
         {
             "step": "runPHP",
-            "code": "<?php wp_insert_post(['post_title' => 'Birthday Form Demo', 'post_content' => '[birthday_bash_form]', 'post_status' => 'publish', 'post_type' => 'page']); ?>"
+            "code": "<?php require '/wordpress/wp-load.php'; wp_insert_post(['post_title' => 'Birthday Form Demo', 'post_content' => '[birthday_bash_form]', 'post_status' => 'publish', 'post_type' => 'page']); ?>"
         }
     ]
 }
