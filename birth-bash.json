@@ -13,7 +13,7 @@
         },
         {
             "step": "runPHP",
-            "code": "<?php require_once '/wordpress/wp-load.php'; update_option('woocommerce_task_list_hidden_lists', ['setup']); update_option('woocommerce_onboarding_profile', []); update_option('woocommerce_allow_tracking', 'no'); update_option('woocommerce_default_country', 'US:NY'); update_option('woocommerce_currency', 'USD'); ?>"
+            "code": "<?php require_once '/wordpress/wp-load.php'; update_option('woocommerce_task_list_hidden_lists', array('setup')); update_option('woocommerce_onboarding_profile', array('skipped' => true)); update_option('woocommerce_allow_tracking', 'no'); update_option('woocommerce_default_country', 'US:NY'); update_option('woocommerce_currency', 'USD'); update_option('woocommerce_admin_notices', array()); ?>"
         },
         {
             "step": "importWxr",
