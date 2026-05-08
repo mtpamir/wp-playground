@@ -1,5 +1,6 @@
 {
     "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+    "landingPage": "/wp-admin/admin.php?page=neolite-birthday-bash",
     "login": true,
     "steps": [
         {
@@ -32,10 +33,6 @@
         {
             "step": "runPHP",
             "code": "<?php require_once '/wordpress/wp-load.php'; wp_insert_post(['post_title' => 'Birthday Form Demo', 'post_content' => '[birthday_bash_form]', 'post_status' => 'publish', 'post_type' => 'page']); ?>"
-        },
-        {
-            "step": "runPHP",
-            "code": "<?php require_once '/wordpress/wp-load.php'; echo '<script>window.location.href=\"' . admin_url('admin.php?page=neolite-birthday-bash') . '\";</script>'; exit; ?>"
         }
     ]
 }
