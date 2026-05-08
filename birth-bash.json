@@ -12,16 +12,8 @@
             "options": { "activate": true }
         },
         {
-            "step": "setSiteOptions",
-            "options": {
-                "woocommerce_allow_tracking": "no",
-                "woocommerce_onboarding_profile": "{}",
-                "woocommerce_setup_jetpack_post_install": "no",
-                "woocommerce_task_list_hidden_lists": "[\"setup\"]",
-                "woocommerce_admin_install_timestamp": "1715150000",
-                "woocommerce_default_country": "US:NY",
-                "woocommerce_currency": "USD"
-            }
+            "step": "runPHP",
+            "code": "<?php require_once '/wordpress/wp-load.php'; update_option('woocommerce_task_list_hidden_lists', ['setup']); update_option('woocommerce_onboarding_profile', []); update_option('woocommerce_allow_tracking', 'no'); update_option('woocommerce_default_country', 'US:NY'); update_option('woocommerce_currency', 'USD'); ?>"
         },
         {
             "step": "importWxr",
