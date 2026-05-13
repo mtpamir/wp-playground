@@ -1,6 +1,6 @@
 {
     "$schema": "https://playground.wordpress.net/blueprint-schema.json",
-    "landingPage": "/wp-admin/admin.php?page=neolite-birthday-bash",
+    "landingPage": "/wp-admin/admin.php?page=neogrow",
     "login": true,
     "steps": [
         {
